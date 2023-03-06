@@ -1,6 +1,6 @@
 package com.example.teaassistant.domain.models
 
-class CreateTeaCardParam(
+data class TeaCardSaveParam(
     val name: String,
     val type: String,
     val origin: String

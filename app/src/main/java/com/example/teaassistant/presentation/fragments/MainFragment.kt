@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.teaassistant.databinding.FragmentMainBinding
-import com.example.teaassistant.domain.models.CreateTeaCardParam
+import com.example.teaassistant.domain.models.TeaCardSaveParam
 import com.example.teaassistant.domain.models.TeaCard
-import com.example.teaassistant.domain.usecase.CreateTeaCardUseCase
-import com.example.teaassistant.domain.usecase.GetTeaCardUseCase
+import com.example.teaassistant.domain.usecase.teacard.CreateTeaCardUseCase
+import com.example.teaassistant.domain.usecase.teacard.GetTeaCardUseCase
 
 class MainFragment : Fragment() {
 
@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
         binding.bSetResult.setOnClickListener {
             Log.d(
                 "rxn", createTeaCardUseCase.execute(
-                    CreateTeaCardParam(
+                    TeaCardSaveParam(
                         name = "Tea1",
                         type = "tea",
                         origin = "India"

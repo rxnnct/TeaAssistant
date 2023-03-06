@@ -1,4 +1,4 @@
-package com.example.teaassistant.domain.usecase
+package com.example.teaassistant.domain.usecase.teacard
 
 import com.example.teaassistant.domain.models.TeaCard
 
