@@ -1,9 +1,9 @@
 package com.example.teaassistant.data.repository
 
 import android.content.Context
-import com.example.teaassistant.domain.models.Language
-import com.example.teaassistant.domain.models.Settings
-import com.example.teaassistant.domain.models.SettingsSaveParam
+import com.example.teaassistant.domain.models.settings.Language
+import com.example.teaassistant.domain.models.settings.Settings
+import com.example.teaassistant.domain.models.settings.SettingsSaveParam
 import com.example.teaassistant.domain.repository.SettingsRepository
 
 private const val SHARED_PREFERENCES_NAME = "shared_preferences_name"

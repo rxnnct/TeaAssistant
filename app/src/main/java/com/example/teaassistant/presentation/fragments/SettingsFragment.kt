@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.teaassistant.data.repository.SettingsRepositoryImpl
 import com.example.teaassistant.databinding.FragmentSettingsBinding
-import com.example.teaassistant.domain.models.Language
-import com.example.teaassistant.domain.models.Settings
-import com.example.teaassistant.domain.models.SettingsSaveParam
+import com.example.teaassistant.domain.models.settings.Language
+import com.example.teaassistant.domain.models.settings.Settings
+import com.example.teaassistant.domain.models.settings.SettingsSaveParam
 import com.example.teaassistant.domain.usecase.settings.GetSettingsUseCase
 import com.example.teaassistant.domain.usecase.settings.SaveSettingsUseCase
 

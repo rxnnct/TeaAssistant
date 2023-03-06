@@ -1,4 +1,4 @@
-package com.example.teaassistant.domain.models
+package com.example.teaassistant.domain.models.teacard
 
 data class TeaCardSaveParam(
     val name: String,

@@ -1,7 +1,7 @@
 package com.example.teaassistant.domain.repository
 
-import com.example.teaassistant.domain.models.Settings
-import com.example.teaassistant.domain.models.SettingsSaveParam
+import com.example.teaassistant.domain.models.settings.Settings
+import com.example.teaassistant.domain.models.settings.SettingsSaveParam
 
 interface SettingsRepository {
 
