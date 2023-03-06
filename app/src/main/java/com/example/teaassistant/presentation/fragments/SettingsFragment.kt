@@ -17,9 +17,9 @@ class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 
-    private val settingsRepository by lazy { SettingsRepositoryImpl(context = requireActivity()) }
-    private val getSettingsUseCase by lazy { GetSettingsUseCase(settingsRepository = settingsRepository) }
-    private val setSettingsUseCase by lazy { SaveSettingsUseCase(settingsRepository = settingsRepository) }
+    private val settingsRepository by lazy(LazyThreadSafetyMode.NONE) { SettingsRepositoryImpl(context = requireActivity()) }
+    private val getSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) { GetSettingsUseCase(settingsRepository = settingsRepository) }
+    private val setSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) { SaveSettingsUseCase(settingsRepository = settingsRepository) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
