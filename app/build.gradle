@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.teaassistant'
+    namespace 'ru.rxnnct.teaassistant'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.teaassistant"
+        applicationId "ru.rxnnct.teaassistant"
         minSdk 24
         targetSdk 33
         versionCode 1
