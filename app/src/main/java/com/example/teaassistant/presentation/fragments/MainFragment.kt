@@ -7,17 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.teaassistant.databinding.FragmentMainBinding
-import com.example.teaassistant.domain.models.teacard.TeaCardSaveParam
-import com.example.teaassistant.domain.models.teacard.TeaCard
-import com.example.teaassistant.domain.usecase.teacard.CreateTeaCardUseCase
-import com.example.teaassistant.domain.usecase.teacard.GetTeaCardUseCase
+import ru.rxnnct.teaassistant.domain.models.teacard.TeaCardSaveParam
+import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
+import ru.rxnnct.teaassistant.domain.usecase.teacard.CreateTeaCardUseCase
+import ru.rxnnct.teaassistant.domain.usecase.teacard.GetTeaCardUseCase
 
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
-    private val getTeaCardUseCase = GetTeaCardUseCase()
-    private val createTeaCardUseCase = CreateTeaCardUseCase()
+    private val getTeaCardUseCase =
+        GetTeaCardUseCase()
+    private val createTeaCardUseCase =
+        CreateTeaCardUseCase()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

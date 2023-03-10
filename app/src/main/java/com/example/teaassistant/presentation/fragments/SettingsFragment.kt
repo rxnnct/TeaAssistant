@@ -6,20 +6,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.teaassistant.data.repository.SettingsRepositoryImpl
+import com.example.teaassistant.data.storage.SharedPreferencesSettingsStorage
 import com.example.teaassistant.databinding.FragmentSettingsBinding
-import com.example.teaassistant.domain.models.settings.Language
-import com.example.teaassistant.domain.models.settings.Settings
-import com.example.teaassistant.domain.models.settings.SettingsSaveParam
-import com.example.teaassistant.domain.usecase.settings.GetSettingsUseCase
-import com.example.teaassistant.domain.usecase.settings.SaveSettingsUseCase
+import ru.rxnnct.teaassistant.domain.models.settings.Language
+import ru.rxnnct.teaassistant.domain.models.settings.Settings
+import ru.rxnnct.teaassistant.domain.models.settings.SettingsSaveParam
+import ru.rxnnct.teaassistant.domain.usecase.settings.GetSettingsUseCase
+import ru.rxnnct.teaassistant.domain.usecase.settings.SaveSettingsUseCase
 
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 
-    private val settingsRepository by lazy(LazyThreadSafetyMode.NONE) { SettingsRepositoryImpl(context = requireActivity()) }
-    private val getSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) { GetSettingsUseCase(settingsRepository = settingsRepository) }
-    private val setSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) { SaveSettingsUseCase(settingsRepository = settingsRepository) }
+    private val settingsRepository by lazy(LazyThreadSafetyMode.NONE) {
+        SettingsRepositoryImpl(
+            settingsStorage = SharedPreferencesSettingsStorage(context = requireContext())
+        )
+    }
+    private val getSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        GetSettingsUseCase(
+            settingsRepository = settingsRepository
+        )
+    }
+    private val setSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) {
+        SaveSettingsUseCase(
+            settingsRepository = settingsRepository
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +47,9 @@ class SettingsFragment : Fragment() {
 
         binding.bSet.setOnClickListener {
             val language = binding.etLanguage.text.toString()
-            val params = SettingsSaveParam(language = Language.valueOf(language))
+            val params = SettingsSaveParam(
+                language = Language.valueOf(language)
+            )
             val result: Boolean = setSettingsUseCase.execute(params)
             binding.tvRes.text = result.toString()
         }
