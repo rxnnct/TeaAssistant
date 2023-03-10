@@ -1,25 +1,26 @@
 package com.example.teaassistant.data.repository
 
-import android.content.Context
+import com.example.teaassistant.data.storage.SettingsStorage
 import com.example.teaassistant.domain.models.settings.Language
 import com.example.teaassistant.domain.models.settings.Settings
 import com.example.teaassistant.domain.models.settings.SettingsSaveParam
 import com.example.teaassistant.domain.repository.SettingsRepository
+import com.example.teaassistant.data.storage.models.Settings as SettingsFromStorage
 
-private const val SHARED_PREFERENCES_NAME = "shared_preferences_name"
-private const val KEY_LANGUAGE = "language"
-
-class SettingsRepositoryImpl(context: Context) : SettingsRepository {
-
-    private val sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+class SettingsRepositoryImpl(private val settingsStorage: SettingsStorage) : SettingsRepository {
 
     override fun saveSettings(saveParam: SettingsSaveParam): Boolean {
-        sharedPreferences.edit().putString(KEY_LANGUAGE, saveParam.language.toString()).apply()
-        return true
+
+        val settings = SettingsFromStorage(
+            language = saveParam.language.name
+        )
+
+        return settingsStorage.save(settings)
     }
 
     override fun getSettings(): Settings {
-        val language = sharedPreferences.getString(KEY_LANGUAGE, "") ?: ""
+        val language = settingsStorage.get().language
+
         return Settings(language = Language.valueOf(language))
     }
 }
