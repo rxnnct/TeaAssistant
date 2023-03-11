@@ -21,24 +21,7 @@ class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 
-//    private lateinit var viewModel: SettingsViewModel
-    private val viewModel: SettingsViewModel by viewModels()
-
-    private val settingsRepository by lazy(LazyThreadSafetyMode.NONE) {
-        SettingsRepositoryImpl(
-            settingsStorage = SharedPreferencesSettingsStorage(context = requireContext())
-        )
-    }
-    private val getSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        GetSettingsUseCase(
-            settingsRepository = settingsRepository
-        )
-    }
-    private val setSettingsUseCase by lazy(LazyThreadSafetyMode.NONE) {
-        SaveSettingsUseCase(
-            settingsRepository = settingsRepository
-        )
-    }
+    private val viewModel: SettingsViewModel by viewModels { SettingsViewModelFactory(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,20 +35,14 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("RXN", "FR crtd")
-//        viewModel = ViewModelProvider(this)[SettingsViewModel::class.java]
 
         binding.bSet.setOnClickListener {
             val language = binding.etLanguage.text.toString()
-            val params = SettingsSaveParam(
-                language = Language.valueOf(language)
-            )
-            val result: Boolean = setSettingsUseCase.execute(params)
-            binding.tvRes.text = result.toString()
+            binding.tvRes.text = viewModel.save(language)
         }
 
         binding.bGet.setOnClickListener {
-            val settings: Settings = getSettingsUseCase.execute()
-            binding.tvLanguage.text = settings.language.toString()
+            binding.tvLanguage.text = viewModel.get()
         }
     }
 
