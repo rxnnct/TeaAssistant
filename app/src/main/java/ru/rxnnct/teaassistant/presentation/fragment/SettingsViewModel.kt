@@ -1,7 +1,8 @@
 package ru.rxnnct.teaassistant.presentation.fragment
 
 import android.content.Context
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.rxnnct.teaassistant.data.repository.SettingsRepositoryImpl
@@ -17,26 +18,22 @@ class SettingsViewModel(
     private val saveSettingsUseCase: SaveSettingsUseCase
 ) : ViewModel() {
 
-    init {
-        Log.d("RXN", "VM CRTD")
-    }
+    private val _languageLiveData = MutableLiveData<String>()
+    private val _resultLiveData = MutableLiveData<String>()
+    val languageLiveData: LiveData<String> = _languageLiveData
+    val resultLiveData: LiveData<String> = _languageLiveData
 
-    override fun onCleared() {
-        Log.d("RXN", "VM CLRD")
-        super.onCleared()
-    }
-
-    fun save(language: String): String {
+    fun save(language: String) {
         val params = SettingsSaveParam(
             language = Language.valueOf(language)
         )
         val result: Boolean = saveSettingsUseCase.execute(param = params)
-        return result.toString()
+        _resultLiveData.value = "OK? - $result"
     }
 
-    fun get(): String {
+    fun get() {
         val settings: Settings = getSettingsUseCase.execute()
-        return settings.language.toString()
+        _languageLiveData.value = settings.language.toString()
     }
 }
 
