@@ -1,10 +1,13 @@
-package ru.rxnnct.teaassistant.presentation.fragments
+package ru.rxnnct.teaassistant.presentation.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import ru.rxnnct.teaassistant.data.repository.SettingsRepositoryImpl
 import ru.rxnnct.teaassistant.data.storage.SharedPreferencesSettingsStorage
 import ru.rxnnct.teaassistant.databinding.FragmentSettingsBinding
@@ -17,6 +20,9 @@ import ru.rxnnct.teaassistant.domain.usecase.settings.SaveSettingsUseCase
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
+
+//    private lateinit var viewModel: SettingsViewModel
+    private val viewModel: SettingsViewModel by viewModels()
 
     private val settingsRepository by lazy(LazyThreadSafetyMode.NONE) {
         SettingsRepositoryImpl(
@@ -44,6 +50,9 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.d("RXN", "FR crtd")
+//        viewModel = ViewModelProvider(this)[SettingsViewModel::class.java]
 
         binding.bSet.setOnClickListener {
             val language = binding.etLanguage.text.toString()

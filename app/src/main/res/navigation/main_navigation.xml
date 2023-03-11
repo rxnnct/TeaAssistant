@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.rxnnct.teaassistant.presentation.fragments.MainFragment"
+        android:name="ru.rxnnct.teaassistant.presentation.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="ru.rxnnct.teaassistant.presentation.fragments.SettingsFragment"
+        android:name="ru.rxnnct.teaassistant.presentation.fragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

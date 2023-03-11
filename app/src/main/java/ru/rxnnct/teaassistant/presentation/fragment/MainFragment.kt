@@ -1,4 +1,4 @@
-package ru.rxnnct.teaassistant.presentation.fragments
+package ru.rxnnct.teaassistant.presentation.fragment
 
 import android.os.Bundle
 import android.util.Log
