@@ -81,6 +81,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
+    // TODO: remove
     companion object {
         @JvmStatic
         fun newInstance() = SettingsFragment()
