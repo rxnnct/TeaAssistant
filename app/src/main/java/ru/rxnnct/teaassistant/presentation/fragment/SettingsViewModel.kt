@@ -22,12 +22,19 @@ class SettingsViewModel @Inject constructor(
     val languageLiveData: LiveData<String> = _languageLiveData
     val resultLiveData: LiveData<String> = _resultLiveData
 
+    init {
+        get()
+    }
+
     fun save(language: String) {
         val params = SettingsSaveParam(
             language = Language.valueOf(language)
         )
         val result: Boolean = saveSettingsUseCase.execute(param = params)
-        _resultLiveData.value = "OK? - $result"
+        if (result) {
+            _languageLiveData.value = language
+            _resultLiveData.value = "Saved"
+        } else _resultLiveData.value = "Error"
     }
 
     fun get() {

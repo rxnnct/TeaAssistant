@@ -14,34 +14,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etLanguage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
-
     <Button
-        android:id="@+id/bGet"
+        android:id="@+id/bSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get"
-        app:layout_constraintTop_toBottomOf="@+id/etLanguage" />
-
-    <Button
-        android:id="@+id/bSet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="set"
+        android:text="Save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bGet" />
+        app:layout_constraintTop_toBottomOf="@+id/sLanguage" />
 
-    <TextView
-        android:id="@+id/tvRes"
+    <Spinner
+        android:id="@+id/sLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Result"
-        app:layout_constraintTop_toBottomOf="@+id/bSet" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvLanguage"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
