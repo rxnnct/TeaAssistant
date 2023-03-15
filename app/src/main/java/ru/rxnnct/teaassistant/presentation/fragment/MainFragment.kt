@@ -33,13 +33,13 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.bGetResult.setOnClickListener {
-            val teaCard: TeaCard = getTeaCardUseCase.execute()
+            val teaCard: TeaCard = getTeaCardUseCase.execute(1)
             binding.tvResult.text = teaCard.name
         }
 
         binding.bSetResult.setOnClickListener {
             Log.d(
-                "rxn", createTeaCardUseCase.execute(
+                "RXN", createTeaCardUseCase.execute(
                     TeaCardSaveParam(
                         name = "Tea1",
                         type = "tea",

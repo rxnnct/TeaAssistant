@@ -9,9 +9,9 @@ import ru.rxnnct.teaassistant.data.storage.models.Settings as SettingsFromStorag
 
 class SettingsRepositoryImpl(private val settingsStorage: SettingsStorage) : SettingsRepository {
 
-    override fun saveSettings(saveParam: SettingsSaveParam): Boolean {
+    override fun saveSettings(settingsSaveParam: SettingsSaveParam): Boolean {
         val settings = SettingsFromStorage(
-            language = saveParam.language.name
+            language = settingsSaveParam.language.name
         )
         return settingsStorage.save(settings)
     }

@@ -5,6 +5,6 @@ import ru.rxnnct.teaassistant.domain.repository.SettingsRepository
 
 class SaveSettingsUseCase(private val settingsRepository: SettingsRepository) {
     fun execute(param: SettingsSaveParam): Boolean {
-        return settingsRepository.saveSettings(saveParam = param)
+        return settingsRepository.saveSettings(settingsSaveParam = param)
     }
 }

@@ -5,7 +5,7 @@ import ru.rxnnct.teaassistant.domain.models.settings.SettingsSaveParam
 
 interface SettingsRepository {
 
-    fun saveSettings(saveParam: SettingsSaveParam): Boolean
+    fun saveSettings(settingsSaveParam: SettingsSaveParam): Boolean
 
     fun getSettings(): Settings
 }

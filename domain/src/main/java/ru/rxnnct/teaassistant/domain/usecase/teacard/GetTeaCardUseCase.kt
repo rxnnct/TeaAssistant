@@ -4,9 +4,9 @@ import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
 
 class GetTeaCardUseCase {
 
-    fun execute(): TeaCard {
+    fun execute(id: Long): TeaCard {
         return TeaCard(
-            1,
+            id,
             "Tieguanyin",
             "Oolong",
             "Fujian"

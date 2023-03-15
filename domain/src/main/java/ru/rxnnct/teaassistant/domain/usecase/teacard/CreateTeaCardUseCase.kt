@@ -5,8 +5,8 @@ import ru.rxnnct.teaassistant.domain.models.teacard.TeaCardSaveParam
 class CreateTeaCardUseCase {
 
     //stub
-    fun execute(param: TeaCardSaveParam) : Boolean {
-        if (param.name.isEmpty()) {
+    fun execute(teaCardSaveParam: TeaCardSaveParam) : Boolean {
+        if (teaCardSaveParam.name.isEmpty()) {
             return false
         } else {
             return true
