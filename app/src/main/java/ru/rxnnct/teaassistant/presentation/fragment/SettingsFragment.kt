@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ru.rxnnct.teaassistant.databinding.FragmentSettingsBinding
 import ru.rxnnct.teaassistant.domain.models.settings.Language
+import ru.rxnnct.teaassistant.presentation.utils.UserSpinnerItemSelectionListener
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
@@ -63,20 +64,14 @@ class SettingsFragment : Fragment() {
         )
         languageSpinner.adapter = languageSpinnerAdapter
 
-        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
+        languageSpinner.onItemSelectedListener = object : UserSpinnerItemSelectionListener() {
+            override fun onUserItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
                 viewModel.save(languageSpinnerItems[position])
-            }
-
-            override fun onNothingSelected(adapterView: AdapterView<*>) {
-                val resultToast: Toast =
-                    Toast.makeText(requireContext(), "Not saved", Toast.LENGTH_LONG)
-                resultToast.show()
             }
         }
     }

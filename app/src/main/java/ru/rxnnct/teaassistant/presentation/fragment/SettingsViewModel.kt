@@ -35,6 +35,7 @@ class SettingsViewModel @Inject constructor(
             _languageLiveData.value = language
             _resultLiveData.value = "Saved"
         } else _resultLiveData.value = "Error"
+//        get()
     }
 
     fun get() {
