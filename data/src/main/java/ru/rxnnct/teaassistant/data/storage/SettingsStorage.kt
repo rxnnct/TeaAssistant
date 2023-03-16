@@ -1,10 +1,10 @@
 package ru.rxnnct.teaassistant.data.storage
 
-import ru.rxnnct.teaassistant.data.storage.models.Settings
+import ru.rxnnct.teaassistant.data.storage.models.SettingsData
 
 interface SettingsStorage {
 
-    fun save(settings: Settings): Boolean
+    fun save(settingsData: SettingsData): Boolean
 
-    fun get(): Settings
+    fun get(): SettingsData
 }
