@@ -1,6 +1,7 @@
 package ru.rxnnct.teaassistant.data.repository
 
 import ru.rxnnct.teaassistant.data.storage.TeaCardStorage
+import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCardSaveParam
 import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
@@ -23,6 +24,16 @@ class TeaCardRepositoryImpl(private val teaCardStorage: TeaCardStorage) : TeaCar
     }
 
     override fun getAllTeaCards(): ArrayList<TeaCard> {
-        TODO("Not yet implemented")
+        val teaCardList = teaCardStorage.getAll()
+        return teaCardList.mapTo(ArrayList()) { mapDataToModel(it) }
+    }
+
+    private fun mapDataToModel(teaCardData: TeaCardData): TeaCard {
+        return TeaCard(
+            id = teaCardData.id,
+            name = teaCardData.name,
+            type = teaCardData.type,
+            origin = teaCardData.origin
+        )
     }
 }

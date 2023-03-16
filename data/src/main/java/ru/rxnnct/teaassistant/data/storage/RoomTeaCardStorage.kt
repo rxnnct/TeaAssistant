@@ -1,8 +1,11 @@
 package ru.rxnnct.teaassistant.data.storage
 
+import android.content.Context
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
+import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
 
-class RoomTeaCardStorage : TeaCardStorage {
+//class RoomTeaCardStorage(context: Context) : TeaCardStorage {
+class RoomTeaCardStorage() : TeaCardStorage {
     override fun create(teaCardData: TeaCardData): Boolean {
         TODO("Not yet implemented")
     }
@@ -20,6 +23,20 @@ class RoomTeaCardStorage : TeaCardStorage {
     }
 
     override fun getAll(): ArrayList<TeaCardData> {
-        TODO("Not yet implemented")
+        //stub
+        return arrayListOf(
+            TeaCardData(
+                1,
+                "Tieguanyin",
+                "Oolong",
+                "Fujian, China"
+            ),
+            TeaCardData(
+                2,
+                "Huangshan Maofeng",
+                "Green",
+                "Anhui, China"
+            )
+        )
     }
 }

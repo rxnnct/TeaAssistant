@@ -1,23 +1,11 @@
 package ru.rxnnct.teaassistant.domain.usecase.teacard
 
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
+import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 
-class GetAllTeaCardsUseCase {
+class GetAllTeaCardsUseCase(private val teaCardRepository: TeaCardRepository) {
 
     fun execute(): ArrayList<TeaCard> {
-        return arrayListOf(
-            TeaCard(
-                1,
-                "Tieguanyin",
-                "Oolong",
-                "Fujian, China"
-            ),
-            TeaCard(
-                2,
-                "Huangshan Maofeng",
-                "Green",
-                "Anhui, China"
-            )
-        )
+        return teaCardRepository.getAllTeaCards()
     }
 }
