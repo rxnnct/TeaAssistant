@@ -1,6 +1,7 @@
 package ru.rxnnct.teaassistant.presentation.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,15 +28,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.teaCardsListLiveData.observe(viewLifecycleOwner) {
-            binding.tvResult.text = it[0].origin
-        }
-
-        binding.bGetResult.setOnClickListener {
-
-        }
-
-        binding.bSetResult.setOnClickListener {
-
+            Log.d("RXN", it[0].origin)
         }
     }
 

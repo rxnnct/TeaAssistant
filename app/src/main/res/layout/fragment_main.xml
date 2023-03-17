@@ -6,30 +6,16 @@
     android:layout_height="match_parent"
     tools:context="ru.rxnnct.teaassistant.presentation.fragment.MainFragment">
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTeaCardList"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/bGetResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/bSetResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SET"
-        app:layout_constraintBottom_toTopOf="@+id/bGetResult"
-        app:layout_constraintEnd_toEndOf="@+id/bGetResult"
-        app:layout_constraintStart_toStartOf="@+id/bGetResult" />
 </androidx.constraintlayout.widget.ConstraintLayout>
