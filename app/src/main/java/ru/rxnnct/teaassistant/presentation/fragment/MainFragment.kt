@@ -7,14 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.rxnnct.teaassistant.databinding.FragmentMainBinding
+import ru.rxnnct.teaassistant.presentation.utils.TeaCardsRecyclerViewAdapter
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
     private val viewModel: MainViewModel by viewModels()
+
+    private lateinit var teaCardsRecyclerViewAdapter: TeaCardsRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,9 +31,14 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.teaCardsListLiveData.observe(viewLifecycleOwner) {
-            Log.d("RXN", it[0].origin)
-        }
+        initTeaCardsRecyclerView()
+    }
+
+    fun initTeaCardsRecyclerView() = with(binding) {
+        rvTeaCardList.layoutManager = LinearLayoutManager(activity)
+        teaCardsRecyclerViewAdapter = TeaCardsRecyclerViewAdapter()
+        rvTeaCardList.adapter = teaCardsRecyclerViewAdapter
+        teaCardsRecyclerViewAdapter.submitList(viewModel.teaCardsListLiveData.value)
     }
 
     companion object {

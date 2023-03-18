@@ -10,7 +10,7 @@ import ru.rxnnct.teaassistant.R
 import ru.rxnnct.teaassistant.databinding.TeaCardListItemBinding
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
 
-class TeaCardsAdapter : ListAdapter<TeaCard, TeaCardsAdapter.Holder>(Comparator()) {
+class TeaCardsRecyclerViewAdapter : ListAdapter<TeaCard, TeaCardsRecyclerViewAdapter.Holder>(Comparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.tea_card_list_item, parent, false)
