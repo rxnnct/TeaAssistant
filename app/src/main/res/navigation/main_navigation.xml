@@ -20,4 +20,9 @@
         android:name="ru.rxnnct.teaassistant.presentation.fragment.TeaCardFragment"
         android:label="fragment_tea_card"
         tools:layout="@layout/fragment_tea_card" />
+    <fragment
+        android:id="@+id/createTeaCardFragment"
+        android:name="ru.rxnnct.teaassistant.presentation.fragment.CreateTeaCardFragment"
+        android:label="fragment_create_tea_card"
+        tools:layout="@layout/fragment_create_tea_card" />
 </navigation>

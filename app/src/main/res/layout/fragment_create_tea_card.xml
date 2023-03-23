@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.TeaCardFragment">
+    tools:context=".presentation.fragment.CreateTeaCardFragment">
 
     <EditText
         android:id="@+id/etCreateName"
+        app:layout_constraintStart_toEndOf="@+id/tvCreateName"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/tvCreateName"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="133dp" />
 
     <TextView
         android:id="@+id/tvCreateName"
@@ -21,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Name:"
         app:layout_constraintBottom_toBottomOf="@+id/etCreateName"
+        app:layout_constraintEnd_toStartOf="@+id/etCreateName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etCreateName" />
 
@@ -64,8 +67,9 @@
         android:id="@+id/bCreateTeaCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
