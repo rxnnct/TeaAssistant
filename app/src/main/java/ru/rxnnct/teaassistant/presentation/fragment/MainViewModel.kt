@@ -13,8 +13,8 @@ class MainViewModel @Inject constructor(
     private val getAllTeaCardsUseCase: GetAllTeaCardsUseCase
 ) : ViewModel() {
 
-    private val _teaCardsListLiveData = MutableLiveData<ArrayList<TeaCard>>()
-    val teaCardsListLiveData: LiveData<ArrayList<TeaCard>> = _teaCardsListLiveData
+    private val _teaCardsListLiveData = MutableLiveData<List<TeaCard>>()
+    val teaCardsListLiveData: LiveData<List<TeaCard>> = _teaCardsListLiveData
 
     init {
         getAllTeaCards()

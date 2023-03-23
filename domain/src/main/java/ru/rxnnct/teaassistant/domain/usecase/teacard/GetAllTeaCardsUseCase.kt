@@ -5,7 +5,7 @@ import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 
 class GetAllTeaCardsUseCase(private val teaCardRepository: TeaCardRepository) {
 
-    fun execute(): ArrayList<TeaCard> {
+    fun execute(): List<TeaCard> {
         return teaCardRepository.getAllTeaCards()
     }
 }

@@ -13,5 +13,5 @@ interface TeaCardRepository {
 
     fun getTeaCard(id: Long): TeaCard
 
-    fun getAllTeaCards(): ArrayList<TeaCard>
+    fun getAllTeaCards(): List<TeaCard>
 }
