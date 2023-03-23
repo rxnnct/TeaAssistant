@@ -1,11 +1,10 @@
 package ru.rxnnct.teaassistant.data.storage
 
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
-import ru.rxnnct.teaassistant.data.storage.models.TeaCardSaveParamData
 
 interface TeaCardStorage {
 
-    fun create(teaCardSaveParamData: TeaCardSaveParamData): Boolean
+    fun create(teaCardSaveParamData: TeaCardData): Boolean
 
     fun edit(teaCardData: TeaCardData): Boolean
 
@@ -13,5 +12,5 @@ interface TeaCardStorage {
 
     fun get(id: Long): TeaCardData
 
-    fun getAll(): ArrayList<TeaCardData>
+    fun getAll(): List<TeaCardData>
 }

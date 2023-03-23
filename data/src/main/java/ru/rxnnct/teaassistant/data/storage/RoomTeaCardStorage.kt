@@ -1,18 +1,28 @@
 package ru.rxnnct.teaassistant.data.storage
 
+import android.content.Context
+import androidx.room.Room
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
-import ru.rxnnct.teaassistant.data.storage.models.TeaCardSaveParamData
 
-//class RoomTeaCardStorage(context: Context) : TeaCardStorage {
-class RoomTeaCardStorage : TeaCardStorage {
-    override fun create(teaCardSaveParamData: TeaCardSaveParamData): Boolean {
-        //stub
-        if (teaCardSaveParamData.name == "test") {
-            return true
+class RoomTeaCardStorage(context: Context) : TeaCardStorage {
+
+    private val database = Room.databaseBuilder(
+        context,
+        RoomTeaCardDatabase::class.java, "database-name"
+    ).allowMainThreadQueries().build()
+
+
+    override fun create(teaCardSaveParamData: TeaCardData): Boolean {
+        return if (teaCardSaveParamData.name != ""
+            && teaCardSaveParamData.type != ""
+            && teaCardSaveParamData.origin != ""
+        ) {
+            val userDao = database.teaCardDataDao()
+            userDao.insert(teaCardSaveParamData)
+            true
         } else {
-            return false
+            false
         }
-
     }
 
     override fun edit(teaCardData: TeaCardData): Boolean {
@@ -27,21 +37,8 @@ class RoomTeaCardStorage : TeaCardStorage {
         TODO("Not yet implemented")
     }
 
-    override fun getAll(): ArrayList<TeaCardData> {
-        //stub
-        return arrayListOf(
-            TeaCardData(
-                1,
-                "Tieguanyin",
-                "Oolong",
-                "Fujian, China"
-            ),
-            TeaCardData(
-                2,
-                "Huangshan Maofeng",
-                "Green",
-                "Anhui, China"
-            )
-        )
+    override fun getAll(): List<TeaCardData> {
+        val userDao = database.teaCardDataDao()
+        return userDao.getAll()
     }
 }

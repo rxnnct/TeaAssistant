@@ -2,7 +2,6 @@ package ru.rxnnct.teaassistant.data.repository
 
 import ru.rxnnct.teaassistant.data.storage.TeaCardStorage
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
-import ru.rxnnct.teaassistant.data.storage.models.TeaCardSaveParamData
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
 import ru.rxnnct.teaassistant.domain.models.teacard.TeaCardSaveParam
 import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
@@ -38,8 +37,8 @@ class TeaCardRepositoryImpl(private val teaCardStorage: TeaCardStorage) : TeaCar
         )
     }
 
-    private fun mapModelToData(teaCardSaveData: TeaCardSaveParam): TeaCardSaveParamData {
-        return TeaCardSaveParamData(
+    private fun mapModelToData(teaCardSaveData: TeaCardSaveParam): TeaCardData {
+        return TeaCardData(
             name = teaCardSaveData.name,
             type = teaCardSaveData.type,
             origin = teaCardSaveData.origin

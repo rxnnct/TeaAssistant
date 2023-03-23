@@ -37,8 +37,7 @@ class DataModule {
     @Provides
     @Singleton
     fun provideTeaCardStorage(@ApplicationContext context: Context): TeaCardStorage {
-//        return RoomTeaCardStorage(context = context)
-        return RoomTeaCardStorage()
+        return RoomTeaCardStorage(context = context)
     }
 
     @Provides
