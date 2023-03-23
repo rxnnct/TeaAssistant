@@ -1,13 +1,18 @@
 package ru.rxnnct.teaassistant.data.storage
 
-import android.content.Context
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
-import ru.rxnnct.teaassistant.domain.models.teacard.TeaCard
+import ru.rxnnct.teaassistant.data.storage.models.TeaCardSaveParamData
 
 //class RoomTeaCardStorage(context: Context) : TeaCardStorage {
-class RoomTeaCardStorage() : TeaCardStorage {
-    override fun create(teaCardData: TeaCardData): Boolean {
-        TODO("Not yet implemented")
+class RoomTeaCardStorage : TeaCardStorage {
+    override fun create(teaCardSaveParamData: TeaCardSaveParamData): Boolean {
+        //stub
+        if (teaCardSaveParamData.name == "test") {
+            return true
+        } else {
+            return false
+        }
+
     }
 
     override fun edit(teaCardData: TeaCardData): Boolean {

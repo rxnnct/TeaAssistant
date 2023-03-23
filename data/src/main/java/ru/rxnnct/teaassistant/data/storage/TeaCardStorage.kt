@@ -1,10 +1,11 @@
 package ru.rxnnct.teaassistant.data.storage
 
 import ru.rxnnct.teaassistant.data.storage.models.TeaCardData
+import ru.rxnnct.teaassistant.data.storage.models.TeaCardSaveParamData
 
 interface TeaCardStorage {
 
-    fun create(teaCardData: TeaCardData): Boolean
+    fun create(teaCardSaveParamData: TeaCardSaveParamData): Boolean
 
     fun edit(teaCardData: TeaCardData): Boolean
 

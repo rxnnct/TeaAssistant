@@ -7,7 +7,7 @@ interface TeaCardRepository {
 
     fun createTeaCard(teaCardSaveParam: TeaCardSaveParam): Boolean
 
-    fun editTeaCard(teaCardSaveParam: TeaCardSaveParam): Boolean
+    fun editTeaCard(teaCard: TeaCard): Boolean
 
     fun deleteTeaCard(id: Long): Boolean
 
