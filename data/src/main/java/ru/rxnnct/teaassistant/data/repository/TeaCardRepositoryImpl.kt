@@ -25,7 +25,7 @@ class TeaCardRepositoryImpl(private val teaCardStorage: TeaCardStorage) : TeaCar
 
     override fun getAllTeaCards(): List<TeaCard> {
         val teaCardList = teaCardStorage.getAll()
-        return teaCardList.mapTo(ArrayList()) { mapDataToModel(it) }
+        return teaCardList.map { mapDataToModel(it) }
     }
 
     private fun mapDataToModel(teaCardData: TeaCardData): TeaCard {
