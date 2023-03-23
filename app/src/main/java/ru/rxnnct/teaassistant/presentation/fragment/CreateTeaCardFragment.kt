@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.rxnnct.teaassistant.R
 import ru.rxnnct.teaassistant.databinding.FragmentCreateTeaCardBinding
 
 @AndroidEntryPoint
@@ -27,15 +29,14 @@ class CreateTeaCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.teaCardLiveData.observe(viewLifecycleOwner) {
-            binding.etCreateName.setText(it.name)
-            binding.etCreateType.setText(it.type)
-            binding.etCreateOrigin.setText(it.origin)
-        }
-
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
+            var creationResult = "Error"
+            if (it) {
+                creationResult = "Saved"
+                activity?.findNavController(R.id.fragmentContainerView)?.navigate(R.id.mainFragment)
+            }
             val resultToast: Toast =
-                Toast.makeText(requireContext(), viewModel.resultLiveData.value, Toast.LENGTH_LONG)
+                Toast.makeText(requireContext(), creationResult, Toast.LENGTH_LONG)
             resultToast.show()
         }
 
