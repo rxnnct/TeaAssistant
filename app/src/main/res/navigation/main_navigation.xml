@@ -15,4 +15,9 @@
         android:name="ru.rxnnct.teaassistant.presentation.fragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/teaCardFragment"
+        android:name="ru.rxnnct.teaassistant.presentation.fragment.TeaCardFragment"
+        android:label="fragment_tea_card"
+        tools:layout="@layout/fragment_tea_card" />
 </navigation>

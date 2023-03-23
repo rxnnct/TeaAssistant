@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
 //            R.id.menu_search -> {
 //
 //            }
-//            R.id.menu_create -> {
-//
-//            }
+            R.id.menu_create -> {
+                navController.navigate(R.id.teaCardFragment)
+            }
         }
         return true
     }
