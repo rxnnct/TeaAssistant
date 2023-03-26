@@ -7,10 +7,11 @@
     tools:context=".presentation.fragment.TeaCardFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivTeaCardBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.3"
+        android:contentDescription="@string/description_tea_background"
         android:scaleType="fitXY"
         android:src="@drawable/background_tea"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -7,10 +7,11 @@
     tools:context="ru.rxnnct.teaassistant.presentation.fragment.SettingsFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivTeaCardBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.3"
+        android:contentDescription="@string/description_tea_background"
         android:scaleType="fitXY"
         android:src="@drawable/background_tea"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +23,7 @@
         android:id="@+id/tvLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lang"
+        android:text="@string/settings_language"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,8 +31,8 @@
         android:id="@+id/bSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="@+id/ivTeaCardBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

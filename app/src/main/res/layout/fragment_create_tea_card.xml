@@ -7,10 +7,11 @@
     tools:context=".presentation.fragment.CreateTeaCardFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivTeaCardBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.3"
+        android:contentDescription="@string/description_tea_background"
         android:scaleType="fitXY"
         android:src="@drawable/background_tea"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,12 +21,13 @@
 
     <EditText
         android:id="@+id/etCreateName"
-        app:layout_constraintStart_toEndOf="@+id/tvCreateName"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="Name"
         android:ems="10"
         android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/tvCreateName"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="152dp"
         tools:layout_editor_absoluteY="133dp" />
 
@@ -33,7 +35,7 @@
         android:id="@+id/tvCreateName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name:"
+        android:text="@string/create_tea_name"
         app:layout_constraintBottom_toBottomOf="@+id/etCreateName"
         app:layout_constraintEnd_toStartOf="@+id/etCreateName"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +45,7 @@
         android:id="@+id/etCreateType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="Tea type"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/tvCreateType"
@@ -52,7 +55,7 @@
         android:id="@+id/tvCreateType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Type:"
+        android:text="@string/create_tea_type"
         app:layout_constraintBottom_toBottomOf="@+id/etCreateType"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etCreateName" />
@@ -61,6 +64,7 @@
         android:id="@+id/etCreateOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints="Origin"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/tvCreateOrigin"
@@ -70,7 +74,7 @@
         android:id="@+id/tvCreateOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Origin:"
+        android:text="@string/create_tea_origin"
         app:layout_constraintBottom_toBottomOf="@+id/etCreateOrigin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etCreateOrigin" />
@@ -79,7 +83,7 @@
         android:id="@+id/bCreateTeaCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
+        android:text="@string/create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
