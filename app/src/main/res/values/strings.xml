@@ -2,7 +2,7 @@
     <string name="app_name">TeaAssistant</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tea_card_origin_text">From:</string>
+    <string name="tea_card_origin_text">From:&#160;</string>
     <string name="description_edit_card">Edit card</string>
     <string name="description_tea_background">Tea Background</string>
     <string name="settings_language">Language:</string>
