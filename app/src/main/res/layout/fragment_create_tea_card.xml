@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragment.CreateTeaCardFragment">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.3"
+        android:scaleType="fitXY"
+        android:src="@drawable/background_tea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etCreateName"
         app:layout_constraintStart_toEndOf="@+id/tvCreateName"

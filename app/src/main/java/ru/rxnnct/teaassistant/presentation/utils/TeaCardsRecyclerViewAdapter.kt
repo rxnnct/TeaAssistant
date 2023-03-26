@@ -28,7 +28,7 @@ class TeaCardsRecyclerViewAdapter : ListAdapter<TeaCard, TeaCardsRecyclerViewAda
         fun bind(item: TeaCard) = with(binding) {
             tvTeaName.text = item.name
             tvTeaType.text = item.type
-            tvTeaOrigin.text = item.origin
+            tvTeaOrigin.text = tvTeaOrigin.text.toString() + item.origin
         }
     }
 
