@@ -9,6 +9,7 @@ import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 import ru.rxnnct.teaassistant.domain.usecase.settings.GetSettingsUseCase
 import ru.rxnnct.teaassistant.domain.usecase.settings.SaveSettingsUseCase
 import ru.rxnnct.teaassistant.domain.usecase.teacard.CreateTeaCardUseCase
+import ru.rxnnct.teaassistant.domain.usecase.teacard.EditTeaCardUseCase
 import ru.rxnnct.teaassistant.domain.usecase.teacard.GetAllTeaCardsUseCase
 import ru.rxnnct.teaassistant.domain.usecase.teacard.GetTeaCardUseCase
 
@@ -36,5 +37,10 @@ class DomainModule {
     @Provides
     fun provideCreateTeaCardUseCase(teaCardRepository: TeaCardRepository): CreateTeaCardUseCase {
         return CreateTeaCardUseCase(teaCardRepository = teaCardRepository)
+    }
+
+    @Provides
+    fun provideEditTeaCardUseCase(teaCardRepository: TeaCardRepository): EditTeaCardUseCase {
+        return EditTeaCardUseCase(teaCardRepository = teaCardRepository)
     }
 }
