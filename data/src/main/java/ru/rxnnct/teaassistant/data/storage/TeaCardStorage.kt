@@ -6,7 +6,7 @@ interface TeaCardStorage {
 
     fun create(teaCardSaveParamData: TeaCardData): Boolean
 
-    fun edit(teaCardData: TeaCardData): Boolean
+    fun update(teaCardData: TeaCardData): Boolean
 
     fun delete(id: Long): Boolean
 

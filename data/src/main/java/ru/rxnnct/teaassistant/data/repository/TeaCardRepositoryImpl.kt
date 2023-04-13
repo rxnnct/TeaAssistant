@@ -7,12 +7,13 @@ import ru.rxnnct.teaassistant.domain.models.teacard.TeaCardSaveParam
 import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 
 class TeaCardRepositoryImpl(private val teaCardStorage: TeaCardStorage) : TeaCardRepository {
+
     override fun createTeaCard(teaCardSaveParam: TeaCardSaveParam): Boolean {
         return teaCardStorage.create(mapModelToData(teaCardSaveParam))
     }
 
     override fun editTeaCard(teaCard: TeaCard): Boolean {
-        TODO("Not yet implemented")
+        return teaCardStorage.update(mapModelToData(teaCard))
     }
 
     override fun deleteTeaCard(id: Long): Boolean {
@@ -42,6 +43,14 @@ class TeaCardRepositoryImpl(private val teaCardStorage: TeaCardStorage) : TeaCar
             name = teaCardSaveData.name,
             type = teaCardSaveData.type,
             origin = teaCardSaveData.origin
+        )
+    }
+
+    private fun mapModelToData(teaCard: TeaCard): TeaCardData {
+        return TeaCardData(
+            name = teaCard.name,
+            type = teaCard.type,
+            origin = teaCard.origin
         )
     }
 }

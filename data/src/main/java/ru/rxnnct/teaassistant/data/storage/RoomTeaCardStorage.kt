@@ -25,8 +25,17 @@ class RoomTeaCardStorage(context: Context) : TeaCardStorage {
         }
     }
 
-    override fun edit(teaCardData: TeaCardData): Boolean {
-        TODO("Not yet implemented")
+    override fun update(teaCardData: TeaCardData): Boolean {
+        return if (teaCardData.name != ""
+            && teaCardData.type != ""
+            && teaCardData.origin != ""
+        ) {
+            val userDao = database.teaCardDataDao()
+            userDao.update(teaCardData)
+            true
+        } else {
+            false
+        }
     }
 
     override fun delete(id: Long): Boolean {
