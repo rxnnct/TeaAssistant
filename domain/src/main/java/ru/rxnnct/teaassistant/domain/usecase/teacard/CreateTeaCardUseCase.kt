@@ -5,7 +5,6 @@ import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 
 class CreateTeaCardUseCase(private val teaCardRepository: TeaCardRepository) {
 
-    //stub
     fun execute(teaCardSaveParam: TeaCardSaveParam) : Boolean {
         return teaCardRepository.createTeaCard(teaCardSaveParam)
     }
