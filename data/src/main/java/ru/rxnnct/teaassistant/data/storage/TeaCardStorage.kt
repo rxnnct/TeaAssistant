@@ -10,7 +10,7 @@ interface TeaCardStorage {
 
     fun delete(id: Long): Boolean
 
-    fun get(id: Long): TeaCardData
+    fun getById(id: Long): TeaCardData
 
     fun getAll(): List<TeaCardData>
 }

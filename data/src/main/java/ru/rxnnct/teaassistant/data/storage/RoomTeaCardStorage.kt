@@ -17,8 +17,8 @@ class RoomTeaCardStorage(context: Context) : TeaCardStorage {
             && teaCardSaveParamData.type != ""
             && teaCardSaveParamData.origin != ""
         ) {
-            val userDao = database.teaCardDataDao()
-            userDao.insert(teaCardSaveParamData)
+            val teaCardDao = database.teaCardDataDao()
+            teaCardDao.insert(teaCardSaveParamData)
             true
         } else {
             false
@@ -30,8 +30,8 @@ class RoomTeaCardStorage(context: Context) : TeaCardStorage {
             && teaCardData.type != ""
             && teaCardData.origin != ""
         ) {
-            val userDao = database.teaCardDataDao()
-            userDao.update(teaCardData)
+            val teaCardDao = database.teaCardDataDao()
+            teaCardDao.update(teaCardData)
             true
         } else {
             false
@@ -42,12 +42,13 @@ class RoomTeaCardStorage(context: Context) : TeaCardStorage {
         TODO("Not yet implemented")
     }
 
-    override fun get(id: Long): TeaCardData {
-        TODO("Not yet implemented")
+    override fun getById(id: Long): TeaCardData {
+        val teaCardDao = database.teaCardDataDao()
+        return teaCardDao.getById(id)
     }
 
     override fun getAll(): List<TeaCardData> {
-        val userDao = database.teaCardDataDao()
-        return userDao.getAll()
+        val teaCardDao = database.teaCardDataDao()
+        return teaCardDao.getAll()
     }
 }

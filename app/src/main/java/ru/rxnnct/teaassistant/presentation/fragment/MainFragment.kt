@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
         initTeaCardsRecyclerView()
     }
 
-    fun initTeaCardsRecyclerView() = with(binding) {
+    private fun initTeaCardsRecyclerView() = with(binding) {
         rvTeaCardList.layoutManager = LinearLayoutManager(activity)
         teaCardsRecyclerViewAdapter = TeaCardsRecyclerViewAdapter()
         rvTeaCardList.adapter = teaCardsRecyclerViewAdapter
