@@ -30,6 +30,11 @@ class DomainModule {
 
     //tea card:
     @Provides
+    fun provideGetTeaCardUseCase(teaCardRepository: TeaCardRepository): GetTeaCardUseCase {
+        return GetTeaCardUseCase(teaCardRepository = teaCardRepository)
+    }
+
+    @Provides
     fun provideGetAllTeaCardUseCase(teaCardRepository: TeaCardRepository): GetAllTeaCardsUseCase {
         return GetAllTeaCardsUseCase(teaCardRepository = teaCardRepository)
     }

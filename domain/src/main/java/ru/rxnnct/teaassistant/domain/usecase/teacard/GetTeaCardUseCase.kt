@@ -6,11 +6,6 @@ import ru.rxnnct.teaassistant.domain.repository.TeaCardRepository
 class GetTeaCardUseCase(private val teaCardRepository: TeaCardRepository) {
 
     fun execute(id: Long): TeaCard {
-        return TeaCard(
-            id,
-            "Tieguanyin",
-            "Oolong",
-            "Fujian"
-        )
+        return teaCardRepository.getTeaCard(id)
     }
 }
